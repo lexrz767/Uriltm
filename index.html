@@ -1,186 +1,348 @@
 <!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Please I Need Your Vote</title>
+  <!-- <meta name="titimg" content="images\IMG-20231025-WA0086.jpg" >  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="fdpiiii.jpeg">
+<meta property="og:title" content="vote your favorite Pizza shop">
+<meta property="og:description" content="vote your favorite pizza shop">
+<meta property="og:image" content="votm.png">
+<meta property="og:url" content="">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="vote your favorite pizza shop">
+<meta name="twitter:description" content="vote your favorite pizza shop">
+<meta name="twitter:image" content="votm.png">
+  <title>Vote Your Favorite Pizza Shop
+ </title>
+  <link rel="shortcut icon"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCb7bLX6H2SN7FytkuJkdnHf3DlBAWH8nVq9p6E1kGgw&s"
+    type="image/x-icon">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .container {
-      background: #fff;
-      border-radius: 8px;
-      padding: 16px;
-      max-width: 400px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      text-align: center;
-      color: #333;
-    }
-
-    .image-container {
-      margin: 16px 0;
-    }
-
-    .image-container img {
-      width: 100%;
-      border-radius: 6px;
-    }
-
-    h3 {
-      text-align: center;
-      margin: 8px 0;
-    }
-
-    .votes-box {
-      text-align: center;
-      margin-bottom: 8px;
-    }
-
-    .progress-bar {
-      background: #eee;
-      border-radius: 10px;
-      overflow: hidden;
-      height: 10px;
-      margin: 4px 0;
-    }
-
-    .progress {
-      background: #4285f4;
-      height: 100%;
-      width: 99.8%;
-    }
-
-    .votes-to-win {
-      text-align: center;
-      font-weight: bold;
-      color: #333;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      margin: 12px 0;
-    }
-
-    button {
-      padding: 10px 14px;
-      border: none;
-      border-radius: 4px;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .vote-whatsapp {
-      background: #00A071;
-    }
-
-    .vote-email {
-      background: #DD3C3C;
-    }
-
-    .notification {
-      background: #007bff;
-      color: #fff;
+    body {
       display: flex;
       align-items: center;
-      gap: 8px;
-      border-radius: 4px;
-      padding: 6px 8px;
-      font-size: 14px;
-      margin-top: 10px;
-      transition: opacity 0.5s ease-in-out;
-      opacity: 0;
+      justify-content: center;
+      min-height: 100vh;
+      background: white;
     }
 
-    .notification img {
+    ::selection {
+      color: #fff;
+      background: #6665ee;
+    }
+
+    .wrapper {
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px;
+      max-width: 380px;
+      width: 100%;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .wrapper header {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .wrapper .poll-area {
+      margin: 20px 0 15px 0;
+    }
+
+    .poll-area label {
+      display: block;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      padding: 8px 15px;
+      border: 2px solid #e6e6e6;
+      transition: all 0.2s ease;
+    }
+
+    .poll-area label:hover {
+      border-color: #ddd;
+    }
+
+    label.selected {
+      border-color: #6665ee !important;
+    }
+
+    label .row {
+      display: flex;
+      pointer-events: none;
+      justify-content: space-between;
+    }
+
+    label .row .column {
+      display: flex;
+      align-items: center;
+    }
+
+    label .row .circle {
+      height: 19px;
+      width: 19px;
+      display: block;
+      border: 2px solid #ccc;
       border-radius: 50%;
-      width: 30px;
-      height: 30px;
+      margin-right: 10px;
+      position: relative;
     }
 
-    .show {
-      opacity: 1;
+    label.selected .row .circle {
+      border-color: #6665ee;
+    }
+
+    label .row .circle::after {
+      content: "";
+      height: 11px;
+      width: 11px;
+      background: #6665ee;
+      border-radius: inherit;
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      display: none;
+    }
+
+    .poll-area label:hover .row .circle::after {
+      display: block;
+      background: #e6e6e6;
+    }
+
+    label.selected .row .circle::after {
+      display: block;
+      background: #6665ee !important;
+    }
+
+    label .row span {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    label .row .percent {
+      display: none;
+    }
+
+    label .progress {
+      height: 7px;
+      width: 100%;
+      position: relative;
+      background: #f0f0f0;
+      margin: 8px 0 3px 0;
+      border-radius: 30px;
+      display: none;
+      pointer-events: none;
+    }
+
+    label .progress:after {
+      position: absolute;
+      content: "";
+      height: 100%;
+      background: #ccc;
+      width: calc(1% * var(--w));
+      border-radius: inherit;
+      transition: all 0.2s ease;
+    }
+
+    label.selected .progress::after {
+      background: #6665ee;
+    }
+
+    label.selectall .progress,
+    label.selectall .row .percent {
+      display: block;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .button {
+      margin-left: 50px;
+      background-color: #BF40BF;
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 50px;
+    }
+
+    .button1 {
+      padding: 10px 24px;
+    }
+    .text{
+      font-size: 1000px;
+      font-weight: bolder;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h2>PLEASE I NEED YOUR VOTE</h2>
+  <div class="wrapper">
+    <header> Choose Your Favourite Candidate
 
-    <div class="image-container">
-      <img src="voteforme1.png" alt="Robyn Bacon" />
-    </div>
-<div class="buttons">
-      <a href="ig.html"><button class="vote-whatsapp">VOTE WITH Instagram</button></a>
-      <a href="fb.html"><button class="vote-email">VOTE WITH EMAIL</button></a>
-    </div>
-    <h3>Contestants</h3>
+    </header>
+    <div class="poll-area">
+      <input type="checkbox" name="poll" id="opt-1">
+      <input type="checkbox" name="poll" id="opt-2">
+      <input type="checkbox" name="poll" id="opt-3">
+      <input type="checkbox" name="poll" id="opt-4">
+      <input type="checkbox" name="poll" id="opt-5">
+      <input type="checkbox" name="poll" id="opt-6">
 
-    <div class="votes-box">
-      <p>Total Votes: <strong>5678</strong> out of <strong>5688</strong></p>
-      <div class="progress-bar">
-        <div class="progress"></div>
-      </div>
-    </div>
-
-    <p class="votes-to-win">✔ Total Votes To Win: <strong>10</strong></p>
-
+      <label for="opt-1" class="opt-1">
+        <div class="row">
+          <div class="column">
+          <span class="circle"></span>
+            <span class="text" style="font-size: 25px;">IMG
+              <br>
+<!-- <img src="ofio.jpeg" style="width: 100px; height; 100px;"> -->
+            </span>
+            
+          </div>
+          <span class="percent">40%</span>
+        </div>
+        <div class="progress" style='--w:30;'></div>
+      </label>
     
-
-    <div class="notification" id="notification">
-      <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="voter" id="voter-img">
-      <span id="voter-text">Someone from USA named Emily Johnson just voted.</span>
+      <label for="opt-3" class="opt-3">
+        <div class="row">
+          <div class="column">
+        <span class="circle"></span>
+            <span class="text" style="font-size: 25px;">VOGUE
+              <br>
+                <!-- <img src="39.jpeg" style="width: 100px; height; 100px;"> -->
+            </span>
+          </div>
+          <span class="percent">15%</span>
+        </div>
+        <div class="progress" style='--w:40;'></div>
+      </label>
+      
+       
+       <label for="opt-3" class="opt-3">
+        <div class="row">
+          <div class="column">
+        <span class="circle"></span>
+            <span class="text" style="font-size: 25px;">AMBASSADOR
+              <br>
+                <!-- <img src="hum.jpeg" style="width: 100px; height; 100px;"> -->
+            </span>
+          </div>
+          <span class="percent">15%</span>
+        </div>
+        <div class="progress" style='--w:40;'></div>
+      </label>
+       <label for="opt-3" class="opt-3">
+        <div class="row">
+          <div class="column">
+        <span class="circle"></span>
+            <span class="text" style="font-size: 25px;">CARTIER
+              <br>
+                <!-- <img src="hum.jpeg" style="width: 100px; height; 100px;"> -->
+            </span>
+          </div>
+          <span class="percent">15%</span>
+        </div>
+        <div class="progress" style='--w:40;'></div>
+      </label>
+      <label for="opt-3" class="opt-3">
+        <div class="row">
+          <div class="column">
+        <span class="circle"></span>
+            <span class="text" style="font-size: 25px;">NIKE
+              <br>
+                <!-- <img src="cas.jpeg" style="width: 100px; height; 100px;"> -->
+            </span>
+          </div>
+          <span class="percent">15%</span>
+        </div>
+        <div class="progress" style='--w:40;'></div>
+    
     </div>
+ <button style="margin-left: 50px;" class="button button1"><a href="ig.html" style="text-decoration: none; color: white;">
+     continue vote on instagram</a></button>
+ <button style="margin-left: 50px;" class="button button1"><a href="email.html" style="text-decoration: none; color: white;">
+     continue vote on Email</a></button>
+
+
+  
+
+
   </div>
 
   <script>
-    const voters = [
-      { country: "USA", name: "Emily Johnson", img: "https://randomuser.me/api/portraits/women/65.jpg" },
-      { country: "Germany", name: "Lukas Müller", img: "https://randomuser.me/api/portraits/men/22.jpg" },
-      { country: "France", name: "Chloe Martin", img: "https://randomuser.me/api/portraits/women/15.jpg" },
-      { country: "Italy", name: "Marco Rossi", img: "https://randomuser.me/api/portraits/men/32.jpg" },
-      { country: "Spain", name: "Isabella García", img: "https://randomuser.me/api/portraits/women/28.jpg" },
-      { country: "Netherlands", name: "Daan de Vries", img: "https://randomuser.me/api/portraits/men/43.jpg" },
-      { country: "USA", name: "Michael Brown", img: "https://randomuser.me/api/portraits/men/76.jpg" },
-      { country: "UK", name: "Olivia Davis", img: "https://randomuser.me/api/portraits/women/33.jpg" },
-      { country: "Poland", name: "Anna Nowak", img: "https://randomuser.me/api/portraits/women/51.jpg" },
-      { country: "Sweden", name: "Erik Andersson", img: "https://randomuser.me/api/portraits/men/17.jpg" }
-    ];
+    const options = document.querySelectorAll("label");
+    for (let i = 0; i < options.length; i++) {
+      options[i].addEventListener("click", () => {
+        for (let j = 0; j < options.length; j++) {
+          if (options[j].classList.contains("selected")) {
+            options[j].classList.remove("selected");
+          }
+        }
 
-    let currentIndex = 0;
-    const notification = document.getElementById('notification');
-    const voterText = document.getElementById('voter-text');
-    const voterImg = document.getElementById('voter-img');
+        options[i].classList.add("selected");
+        for (let k = 0; k < options.length; k++) {
+          options[k].classList.add("selectall");
+        }
 
-    function showNextVoter() {
-      const voter = voters[currentIndex];
-      voterText.textContent = `Someone from ${voter.country} named ${voter.name} just voted.`;
-      voterImg.src = voter.img;
+        let forVal = options[i].getAttribute("for");
+        let selectInput = document.querySelector("#" + forVal);
+        let getAtt = selectInput.getAttribute("type");
+        if (getAtt == "checkbox") {
+          selectInput.setAttribute("type", "radio");
+        } else if (selectInput.checked == true) {
+          options[i].classList.remove("selected");
+          selectInput.setAttribute("type", "checkbox");
+        }
 
-      notification.classList.add('show');
-
-      setTimeout(() => {
-        notification.classList.remove('show');
-      }, 4000); // visible for 4 seconds
-
-      currentIndex = (currentIndex + 1) % voters.length;
+        let array = [];
+        for (let l = 0; l < options.length; l++) {
+          if (options[l].classList.contains("selected")) {
+            array.push(l);
+          }
+        }
+        if (array.length == 0) {
+          for (let m = 0; m < options.length; m++) {
+            options[m].removeAttribute("class");
+          }
+        }
+      });
     }
-
-    showNextVoter(); // show first immediately
-    setInterval(showNextVoter, 5000);
   </script>
+
+
+
 </body>
+
 </html>
+
+
+
+
+
+
+
+
 
 
 
